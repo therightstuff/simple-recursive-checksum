@@ -1,0 +1,22 @@
+{
+  "name": "simple-recursive-checksum",
+  "version": "0.0.9",
+  "description": "A simple pure Javascript tool to get a checksum of a file or recursively over a folder.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therightstuff/simple-recursive-checksum.git"
+  },
+  "keywords": [
+    "checksum"
+  ],
+  "author": "therightstuff / Adam Fisher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/therightstuff/simple-recursive-checksum/issues"
+  },
+  "homepage": "https://github.com/therightstuff/simple-recursive-checksum#readme"
+}
