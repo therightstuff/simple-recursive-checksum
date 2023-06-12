@@ -1,7 +1,7 @@
 {
   "name": "simple-recursive-checksum",
   "version": "0.0.9",
-  "description": "A simple pure Javascript tool to get a checksum of a file or recursively over a folder.",
+  "description": "A simple pure Javascript tool to get a checksum of a single file or of an entire folder.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

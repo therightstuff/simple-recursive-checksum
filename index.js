@@ -3,6 +3,7 @@ const fs = require('fs');
 
 const DEFAULT_ALGORITHM = 'md5';
 
+// inspired by https://stackoverflow.com/a/44643479/2860309
 function checksumFile(path, algorithm=DEFAULT_ALGORITHM) {
     const hash = crypto.createHash(algorithm);
     return new Promise((resolve, reject) => {
