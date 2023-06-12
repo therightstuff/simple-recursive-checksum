@@ -1,6 +1,6 @@
 {
   "name": "simple-recursive-checksum",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A simple pure Javascript tool to get a checksum of a single file or of an entire folder.",
   "main": "index.js",
   "scripts": {
