@@ -1,6 +1,6 @@
 # simple-recursive-checksum
 
-![](https://img.shields.io/badge/Coverage-39%25-F2C572.svg?color=black&prefix=$coverage$)
+![](https://img.shields.io/badge/Coverage-93%25-83A603.svg?color=black&prefix=$coverage$)
 
 ## Simple checksum determination for files or folders
 
