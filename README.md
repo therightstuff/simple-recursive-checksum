@@ -1,5 +1,9 @@
 # simple-recursive-checksum
 
+![](https://img.shields.io/badge/Coverage-93%25-83A603.svg?color=black&prefix=$coverage$)
+
+## Simple checksum determination for files or folders
+
 A simple pure Javascript tool to get a checksum of a single file or of an entire folder.
 
 For a single file this will use the crypto module to get a hash of the file's contents.
