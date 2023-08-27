@@ -6,9 +6,7 @@ const DEFAULT_ALGORITHM = 'md5';
 
 async function safeStat(path) {
     const stat = await fsp.stat(path);
-    delete stat["atime"];
-    delete stat["atimeMs"];
-    return `${stat.mode}:${stat.uid}:${stat.gid}:${stat.size}:${stat.mtime}:${stat.ctime}:${stat.birthtime}:${stat.dev}:${stat.ino}:${stat.rdev}:${stat.blksize}:${stat.blocks}`;
+    return `${stat.mode}:${stat.uid}:${stat.gid}:${stat.size}:${stat.dev}:${stat.ino}:${stat.rdev}:${stat.blksize}:${stat.blocks}`;
 }
 
 // inspired by https://stackoverflow.com/a/44643479/2860309

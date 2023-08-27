@@ -1,6 +1,7 @@
 # simple-recursive-checksum
 
 ![](https://img.shields.io/badge/Coverage-93%25-83A603.svg?color=black&prefix=$coverage$)
+[![Known Vulnerabilities](https://snyk.io/test/github/therightstuff/simple-recursive-checksum/badge.svg)](https://snyk.io/test/github/therightstuff/simple-recursive-checksum)
 
 ## Simple checksum determination for files or folders
 
@@ -29,7 +30,11 @@ async function main() {
     const directoryHashSha256 = await checksumDirectory("folder_name", "sha256");
 
     console.log(fileHashMd5, fileHashSha256, directoryHashMd5, directoryHashSha256);
+
+    return "Done";
 }
 
-main();
+main()
+    .then(console.log)
+    .catch(console.error);
 ```
