@@ -160,31 +160,36 @@ describe("checksumDirectory", function () {
     });
 
     it("should handle special file types without error", async function () {
-        const testDir = path.join(os.tmpdir(), "checksum-test-special");
-        fs.mkdirSync(testDir, { recursive: true });
-
-        // Create a regular file
-        fs.writeFileSync(
-            path.join(testDir, "regular.txt"),
-            "regular file content"
-        );
-
-        // Create a symbolic link (if supported by the OS)
-        if (process.platform !== "win32") {
-            fs.symlinkSync("regular.txt", path.join(testDir, "symlink.txt"));
-        }
-
-        // Create a named pipe (if supported by the OS)
-        if (process.platform !== "win32") {
-            fs.mkfifoSync(path.join(testDir, "named-pipe"));
-        }
+        const testDir = await fsp.mkdtemp(path.join(os.tmpdir(), "checksum-test-special-"));
 
         try {
+            // Create a regular file
+            fs.writeFileSync(
+                path.join(testDir, "regular.txt"),
+                "regular file content"
+            );
+
+            // Create a symbolic link (if supported by the OS)
+            if (process.platform !== "win32") {
+                fs.symlinkSync("regular.txt", path.join(testDir, "symlink.txt"));
+            }
+
+            // Create a named pipe (if supported by the OS)
+            if (process.platform !== "win32") {
+                const { execSync } = require("child_process");
+                try {
+                    execSync(`mkfifo "${path.join(testDir, "named-pipe")}"`);
+                } catch (error) {
+                    // Skip if mkfifo command is not available
+                    console.warn("mkfifo command not available, skipping named pipe test");
+                }
+            }
+
             const checksum = await checksumDirectory(testDir);
             assert.ok(checksum, "Checksum should be generated without error");
         } finally {
             // Clean up
-            fs.rmSync(testDir, { recursive: true, force: true });
+            await fsp.rm(testDir, { recursive: true, force: true });
         }
     });
 });
